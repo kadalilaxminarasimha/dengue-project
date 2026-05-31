@@ -1,0 +1,87 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block content %}
+
+<h3>Advanced AI Prediction</h3>
+
+<div class="card p-4 shadow">
+
+    <form method="post">
+        {% csrf_token %}
+    
+        <div class="row">
+    
+            <div class="col-md-3">
+                <label>Gender (1=Male, 0=Female)</label>
+                <input type="number" name="gender" class="form-control" required>
+            </div>
+    
+            <div class="col-md-3">
+                <label>Age</label>
+                <input type="number" step="any" name="age" class="form-control" required>
+            </div>
+    
+            <div class="col-md-3">
+                <label>Haemoglobin</label>
+                <input type="number" step="any" name="hb" class="form-control" required>
+            </div>
+    
+            <div class="col-md-3">
+                <label>ESR</label>
+                <input type="number" step="any" name="esr" class="form-control" required>
+            </div>
+    
+            <div class="col-md-3 mt-2">
+                <label>WBC</label>
+                <input type="number" step="any" name="wbc" class="form-control" required>
+            </div>
+    
+            <div class="col-md-3 mt-2">
+                <label>Neutrophil</label>
+                <input type="number" step="any" name="neutrophil" class="form-control" required>
+            </div>
+    
+            <div class="col-md-3 mt-2">
+                <label>Lymphocyte</label>
+                <input type="number" step="any" name="lymphocyte" class="form-control" required>
+            </div>
+    
+            <div class="col-md-3 mt-2">
+                <label>Monocyte</label>
+                <input type="number" step="any" name="monocyte" class="form-control" required>
+            </div>
+    
+            <div class="col-md-3 mt-2">
+                <label>Eosinophil</label>
+                <input type="number" step="any" name="eosinophil" class="form-control" required>
+            </div>
+    
+            <div class="col-md-3 mt-2">
+                <label>Basophil</label>
+                <input type="number" step="any" name="basophil" class="form-control" required>
+            </div>
+    
+            <div class="col-md-3 mt-2">
+                <label>RBC</label>
+                <input type="number" step="any" name="rbc" class="form-control" required>
+            </div>
+    
+            <div class="col-md-3 mt-2">
+                <label>Platelets</label>
+                <input type="number" step="any" name="platelets" class="form-control" required>
+            </div>
+    
+        </div>
+    
+        <button class="btn btn-primary mt-3">Run Prediction</button>
+    </form>
+
+{% if result %}
+<div class="alert alert-success mt-4">
+    Prediction Result: <b>{{ result }}</b>
+</div>
+{% endif %}
+
+</div>
+
+{% endblock %}
